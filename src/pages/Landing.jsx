@@ -16,14 +16,10 @@ import { CiCalendar } from 'react-icons/ci'
 
 
 // carousel
-import Slider from "react-slick"
-var settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
+import { motion } from 'motion'
+
+// hooks
+import { useState, useEffect } from 'react'
 
 
 const Landing = () => {
@@ -136,8 +132,7 @@ const Landing = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {
-              exploreApi.map((data) => (
-                <Slider {...settings} key={data.id}>
+              exploreApi.map((data) => (              
 <div className="overflow-hidden border-[#e4e7ec] shadow-md rounded-md">
               <div className="relative">
                 <img src={data.image} alt={data.alt} className="w-full h-48 object-cover rounded-md" />
@@ -164,9 +159,7 @@ const Landing = () => {
                   </div>
                 </div>
               </div>
-            </div>  
-                </Slider>
-             
+            </div>             
               ))
             }
           </div>
