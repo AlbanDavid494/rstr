@@ -12,8 +12,10 @@ const Footer = () => {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             <div>
-              <div className="flex items-center space-x-2 mb-4">
-                <img src={logo2} alt="rester_logo" className='w-28 mb-[4px]' />
+              <div className="flex flex-col space-x-2">
+                <img src={logo2} alt="rester_logo" className='w-26 -mt-10 -ml-3' />
+                 <p className="text-sm text-[#b0b4b8] -mt-6">Copyright © 2025 Rester Hospitality and Technology Limited. <br />
+                 All Rights Reserved.</p>
               </div>
             </div>
 
@@ -27,20 +29,10 @@ const Footer = () => {
             </div>
 
             <div>
-              <div className="flex gap-4">
-                <div className="w-8 h-8 bg-[#444444] rounded-full flex items-center justify-center">
-                  <FaXTwitter className="text-white text-xs" />
-                </div>
-                <div className="w-8 h-8 bg-[#444444] rounded-full flex items-center justify-center">
-                  < FaInstagram className="text-white text-xs" />
-                </div>
-                <div className="w-8 h-8 bg-[#444444] rounded-full flex items-center justify-center">
-                  <FaFacebookF className="text-white text-xs" />
-                </div>
-                <div className="w-8 h-8 bg-[#444444] rounded-full flex items-center justify-center">
-                  <CiLinkedin className="text-white text-xs" />
-                </div>
-              </div>
+            <div className="flex flex-col gap-6 text-sm text-[#b0b4b8]">
+              <a href="#">Terms of service</a>
+              <a href="#">Privacy Policy</a>
+            </div>  
             </div>
 
             <div>
@@ -56,11 +48,22 @@ const Footer = () => {
           </div>
 
           <div className="border-t border-[#444444] pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="flex gap-6 text-sm text-[#b0b4b8]">
-              <a href="#">Terms of service</a>
-              <a href="#">Privacy Policy</a>
-            </div>
-            <p className="text-sm text-[#b0b4b8]">Copyright © Rester 2025. All Rights Reserved.</p>
+            
+            <div className="flex gap-4">
+                <div className="w-8 h-8 bg-[#444444] rounded-full flex items-center justify-center">
+                  <FaXTwitter className="text-white text-xs" />
+                </div>
+                <div className="w-8 h-8 bg-[#444444] rounded-full flex items-center justify-center">
+                  < FaInstagram className="text-white text-xs" />
+                </div>
+                <div className="w-8 h-8 bg-[#444444] rounded-full flex items-center justify-center">
+                  <FaFacebookF className="text-white text-xs" />
+                </div>
+                <div className="w-8 h-8 bg-[#444444] rounded-full flex items-center justify-center">
+                  <CiLinkedin className="text-white text-xs" />
+                </div>
+              </div>
+            
           </div>
         </div>
       </footer>

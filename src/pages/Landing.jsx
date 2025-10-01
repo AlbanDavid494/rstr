@@ -1,34 +1,73 @@
 // image
 import hotel from '../assets/images/hotel.jpg'
 import Artboard_3 from '../assets/svg/Artboard_3.svg'
+import HeroVector from '../assets/svg/HeroVector.svg'
 
 // data
-import { exploreApi, testifierApi } from '../services/api'
-import { BestOfferApi } from '../services/api'
+import { exploreApi} from '../services/api'
 
 // icons
 import { IoBedOutline, IoChevronDown } from 'react-icons/io5'
 import { TfiHeadphoneAlt } from 'react-icons/tfi'
 import { MdOutlineStars } from 'react-icons/md'
 import { FaRegHeart, FaStar } from 'react-icons/fa6'
-import { FiArrowLeft, FiArrowRight } from 'react-icons/fi'
 import { CiCalendar } from 'react-icons/ci'
 
 
 // carousel
-import { motion } from 'motion'
+import Slider from 'react-slick'
 
-// hooks
-import { useState, useEffect } from 'react'
+// components
+import Offers from '../components/Layout/Offers'
+import Testimonial from '../components/Layout/Testimonial'
+
 
 
 const Landing = () => {
+
+const settings = {
+    dots: true,
+    infinite: true,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+   speed: 4000,
+   autoplay:true,
+    cssEase: "linear",
+    initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  };
+
   return (
     <div className='px-4' >
 
 {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-[#fefcfb] to-[#f3f4f6] py-16 px-4">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="max-w-7xl mx-auto flex md:flex-row justify-between flex-col-reverse gap-12 items-center">
           <div className="space-y-8">
             <div>
               <h1 className="text-4xl lg:text-5xl font-bold text-[#222222] leading-tight text-balance">
@@ -86,9 +125,7 @@ const Landing = () => {
                 >
                   Persons <IoChevronDown className="w-4 h-4" />
                 </button>
-              </div>
-
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+              
                 <button className="bg-[#3698d4] hover:bg-[#2980b9] text-white py-2 rounded-md flex items-center justify-center gap-x-1">Check in
                  <CiCalendar />
                 </button>
@@ -100,12 +137,12 @@ const Landing = () => {
             </div>
           </div>
 
-          <div className="relative">
-            <img src={Artboard_3} alt="" className='absolute -bottom-50' />
+          <div className="">
+            <img src={HeroVector} alt="" className='hidden md:block' />
             <img
               src={hotel}
               alt="Hotel room"
-              className="w-full h-[600px] object-cover rounded-full"
+              className="w-full h-full block md:hidden md:h-[600px] object-cover rounded-none md:rounded-full"
             />
           </div>
         </div>
@@ -130,10 +167,15 @@ const Landing = () => {
 
           <h3 className="text-xl font-semibold text-[#222222] mb-6">Top Rated Hotels in Port-Harcourt, Nigeria</h3>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+
+          {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"> */}
+          <div className='mx-auto max-w-7xl'>
+            <Slider {...settings} >
             {
-              exploreApi.map((data) => (              
-<div className="overflow-hidden border-[#e4e7ec] shadow-md rounded-md">
+              exploreApi.map((data) => (
+                <div key={data.id}>     
+            <div className="overflow-hidden border-[#e4e7ec] shadow-md rounded-md w-75">
               <div className="relative">
                 <img src={data.image} alt={data.alt} className="w-full h-48 object-cover rounded-md" />
                 <button size="sm" className="absolute top-3 right-3 bg-white/80 hover:bg-white text-[#222222] p-2 rounded-full">
@@ -159,120 +201,23 @@ const Landing = () => {
                   </div>
                 </div>
               </div>
-            </div>             
+            </div> 
+                </div>
+            
               ))
             }
-          </div>
+          {/* </div> */}
+            </Slider>
+            </div>
+
         </div>
       </section>
 
       {/* Best Offers Section */}
-      <section className="py-16 px-4 bg-[#f3f4f6]">
-        <div className="max-w-7xl mx-auto text-center">
-          <p className="text-[#616161] mb-2">Best offers</p>
-          <h2 className="text-3xl lg:text-4xl font-bold text-[#222222] mb-4">
-            Unlock unbeatable <span className="text-[#3698d4]">Deals</span>
-            <br />
-            on our <span className="text-[#3698d4]">Finest Stays</span>
-          </h2>
-          <p className="text-[#616161] mb-12 max-w-2xl mx-auto">
-            Elevate your journey with our handpicked hotels. Enjoy premium comfort, exclusive discounts and stress-free
-            bookings.
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Deal Card  */}
-            {
-              BestOfferApi.map((data) => (
-              <div key={data.id} className="overflow-hidden border-[#e4e7ec] shadow-md rounded-md">
-              <div className="relative">
-                <img src={data.image} alt={data.alt} className="w-full h-48 object-cover rounded-md" />
-                <button size="sm" className="absolute top-3 right-3 bg-white/80 hover:bg-white text-[#222222] p-2 rounded-full">
-                  <FaRegHeart className="w-4 h-4" />
-                </button>
-              </div>
-              <div className="p-4">
-                <h4 className="font-semibold text-[#222222] mb-1">{data.hotelName}</h4>
-                <p className="text-sm text-[#616161] mb-3 line-clamp-1">{data.description}</p>
-                <div className="flex items-center justify-between">
-                  <div className="flex flex-col">
-                    <span className="text-lg font-bold text-[#3698d4]">{data.amount}</span>
-                    <span className="text-sm text-[#616161]">{data.perNight}</span>
-                  </div>
-                  <button size="sm" className="bg-[#3698d4] hover:bg-[#2980b9] text-white p-2 rounded-md">
-                    {data.btnText}
-                  </button>
-                </div>
-              </div>
-            </div>
-              ))
-            }
-       
-        </div>
-           {/* control arrows */}
-          <div className="flex justify-center gap-4 mt-8">
-            <button variant="outline" size="sm" className="w-12 h-12 rounded-full outline-none focus:outline-none bg-[#fefcfb] flex justify-center items-center">
-                  <FiArrowLeft className="w-5 h-5" />
-                </button>
-            <button className="bg-[#3698d4] hover:bg-[#2980b9] text-white w-12 h-12 rounded-full  flex justify-center items-center">
-              <FiArrowRight className="w-5 h-5" />
-            </button>
-          </div>
-          
-        </div>
-      </section>
+      <Offers />
 
       {/* Testimonials Section */}
-      <section className="py-16 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl lg:text-4xl font-bold text-[#222222] mb-4">
-                What people say
-                <br />
-                <span className="text-[#3698d4]">about us.</span>
-              </h2>
-              <p className="text-[#616161] mb-8">
-                Our clients send us bunch of smiles with our services and we love them.
-              </p>
-
-              <div className="flex gap-4">
-                <button variant="outline" size="sm" className="w-12 h-12 rounded-full outline-none focus:outline-none bg-[#fefcfb] flex justify-center items-center">
-                  <FiArrowLeft className="w-5 h-5" />
-                </button>
-                <button className="bg-[#3698d4] hover:bg-[#2980b9] text-white w-12 h-12 rounded-full flex justify-center items-center">
-                  <FiArrowRight className="w-5 h-5" />
-                </button>
-              </div>
-            </div>
-
-            <div className="space-y-6">
-              {/* card */}
-              {
-                testifierApi.map((data) => (
-                  <div key={data.id} className="p-6 border-[#e4e7ec]">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12">
-                    <img src={data.image} alt={data.alt} className="rounded-full w-full h-full object-cover" />
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-[#222222] mb-4">
-                      {data.description}
-                    </p>
-                    <div>
-                      <p className="font-semibold text-[#222222]">{data.name}</p>
-                      <p className="text-sm text-[#616161]">{data.address}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-                ))
-              }
-            
-            </div>
-          </div>
-        </div>
-      </section>
+      <Testimonial />
 
     </div>
   )
