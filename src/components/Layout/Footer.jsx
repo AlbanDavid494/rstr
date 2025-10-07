@@ -51,10 +51,10 @@ const Footer = () => {
             
             <div className="flex gap-4">
                 <div className="w-8 h-8 bg-[#444444] rounded-full flex items-center justify-center">
-                  <FaXTwitter className="text-white text-xs" />
-                </div>
+                 <a href='https://twitter.com/resterdotafrica'> <FaXTwitter className="text-white text-xs" />
+               </a> </div>
                 <div className="w-8 h-8 bg-[#444444] rounded-full flex items-center justify-center">
-                  < FaInstagram className="text-white text-xs" />
+                 <a href="https://instagram.com/resterdotafrica">< FaInstagram className="text-white text-xs" /></a> 
                 </div>
                 <div className="w-8 h-8 bg-[#444444] rounded-full flex items-center justify-center">
                   <FaFacebookF className="text-white text-xs" />
