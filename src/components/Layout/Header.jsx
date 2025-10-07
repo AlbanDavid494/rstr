@@ -3,6 +3,7 @@ import { useState } from 'react'
 import logo3 from '../../assets/svg/logo3.svg'
 import logo4 from '../../assets/svg/logo4.svg'
 
+
 // icons
 import { IoMenu } from 'react-icons/io5'
 import { IoMdClose } from 'react-icons/io'
@@ -41,6 +42,10 @@ const [isOpen, setIsOpen] = useState(false)
               </a>
               <button className="bg-[#3698d4] hover:bg-[#2980b9] text-white px-4 py-2 rounded-md text-sm">Sign up</button>
             </nav>
+             </div>
+
+             <div className='block md:hidden'>
+              <IoMenu className='text-[#3698d4] text-3xl'/>
              </div>
 
              <button className='block md:hidden transition-all duration-300' onClick={() => setIsOpen(!isOpen)}>

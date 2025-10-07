@@ -33,6 +33,10 @@ const Footer = () => {
               <a href="#">Terms of service</a>
               <a href="#">Privacy Policy</a>
             </div>  
+            <div className="flex flex-col gap-6 text-sm text-[#b0b4b8]">
+              <a href="#">Terms of service</a>
+              <a href="#">Privacy Policy</a>
+            </div>  
             </div>
 
             <div>

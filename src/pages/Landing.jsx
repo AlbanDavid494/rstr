@@ -168,6 +168,7 @@ const Landing = () => {
 
       {/* Testimonials Section */}
       <Testimonial />
+      <Testimonial />
 
     </div>
   )
