@@ -75,7 +75,7 @@ const Landing = () => {
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-[#222222] mb-8">Explore most visited stays in Nigeria</h2>
 
-          <div className="flex justify-between gap-6 mb-8 flex-col">
+          <div className="flex justify-between gap-6 mb-8 flex-col md:flex-row">
            <div className='flex md:gap-x-4 gap-x-4 '>
              <button className='border-[#3698d4] font-semibold text-[#222222]'> Port-Harcourt
             </button>
