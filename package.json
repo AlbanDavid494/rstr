@@ -14,11 +14,7 @@
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-icons": "^5.5.0",
-<<<<<<< HEAD
     "swiper": "^12.0.2",
-=======
-    "react-slick": "^0.31.0",
->>>>>>> c5c5927a4edfee24af2e14b0bb02bcb3780a081c
     "tailwindcss": "^4.1.13"
   },
   "devDependencies": {

@@ -105,7 +105,7 @@ const Testimonial = () => {
         
          <div                  
                    className="p-6 border-[#e4e7ec]
-                    bg-gray-50 shadow-md rounded-2xl mx-auto w-full md:w-70 h-full md:mb-0 mb-10 md:my-10 ">
+                    bg-gray-50 shadow-md rounded-2xl mx-auto w-full md:w-70 h-full md:mb-10 mb-10 md:my-10 ">
                 <div className="flex flex-col justify-center items-center gap-4">
                   <div className="w-16 h-16">
                     <img src={data.image} alt={data.alt} className="rounded-full w-full h-full object-cover" />

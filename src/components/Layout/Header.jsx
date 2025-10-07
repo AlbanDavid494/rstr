@@ -44,9 +44,6 @@ const [isOpen, setIsOpen] = useState(false)
             </nav>
              </div>
 
-             <div className='block md:hidden'>
-              <IoMenu className='text-[#3698d4] text-3xl'/>
-             </div>
 
              <button className='block md:hidden transition-all duration-300' onClick={() => setIsOpen(!isOpen)}>
               {
